@@ -1,0 +1,85 @@
+#dingbu {
+    background-color: rgb(152, 224, 255);
+    /* height: 75px;  */
+    padding: 10px; 
+    text-align:center;
+    border-bottom: 2px solid rgb(255,200,200);
+}
+
+#dingtou {
+    background-color: rgb(0, 200, 255);
+    border: 1px solid rgb(37, 172, 231);
+    display: inline-block;
+    text-align: center; 
+    position: relative;
+    left: 40%;
+    top:7px;
+}
+
+#dingwen {
+    color:white ;
+    font-size: larger;
+    display: inline-block;
+    position: relative;
+    right: 750px;
+    bottom:3px;
+}
+
+#mingzi {
+    display: inline-block; 
+    position: relative; 
+    bottom: 12px;
+}
+
+#dingxiang {
+    position: relative; 
+    top: 2px;
+}
+
+#zhongse {
+    text-align: left;
+    padding: 10px; 
+    display: block;
+}
+
+#zhongjian {
+    display: inline-block;
+    width: 54.16%;
+    text-align: left;
+    max-height: 700px;      /*防止消息过多挤爆框*/
+    height:700px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top:10px;
+    background-color: #f1f1f1;
+    overflow-y: auto;       /*消息过多时显示滑动条*/
+}
+
+.shurukuang {
+    width: 300px;
+    height: 70px;
+    margin:7px;
+    display: inline-block;
+}
+
+#xiamian {
+    max-height: 90px;
+    height:90px;
+    background-color: aquamarine;
+}
+
+#ds {
+    display: inline-block;
+    margin-left: 6.25%;
+    width: 37.5%;
+    height: 700px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top:10px;
+    background-color: rgb(255,255,200);
+    overflow-y: auto;
+}
+
+
+
+

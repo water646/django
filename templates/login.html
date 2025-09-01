@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<div style="display: inline-block; background-color: lightcyan; width:48%; height:500px; margin-left: 25%; margin-top: 200px; text-align:center; border: lightcyan">
+    <form action="/login" method="post" style="margin-top:25%">
+    {% csrf_token %}
+    <label for="username">用户名: </label>
+    <input type="text" name="username">
+    <br>
+    <label for="password">密码: </label>
+    <input type="text" name="password">
+    <br>
+    <button type="submit" name="login" value="login">登录</button>
+    <button type="submit" name="register" value="register">注册</button>
+    {% if label == 0 %}
+        <p style="font-size: small">注册成功，请登录</p>
+    {% elif label == 1 %}
+        <p style="font-size: small">用户名已存在，请重新注册</p>
+    {% elif label == 2 %}
+        <p style="font-size: small">用户名与密码不允许为空</p>
+    {% elif label == 3 %}
+        <p style="font-size: small">用户名或密码错误</p>
+    {% endif %}
+    </form>
+</div>
+</body>
+
+</html>

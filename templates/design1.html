@@ -1,0 +1,73 @@
+<!--需要加下面的句子加载静态css、js文件，同时在settings指定路径-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平台</title>
+    <!--需要修改为模板，创建static文件夹-->
+    <link rel="stylesheet" href="{% static 'css/style-for-design1.css' %}">
+    <script src="{% static 'js/design1.js' %}"></script>
+
+</head>
+<body>
+    <div id="dingbu">
+        <div id="dingtou">
+            <div id="mingzi">{{ usname }}</div>
+            <span id="dingxiang"><img src="{% static 'picture/headimg.png' %}" alt="picture" width="40px" height="40px"></span>
+        </div>
+        <p id="dingwen">留言板</p>
+    </div>
+
+
+
+    <div id="zhongse">
+        <div id="zhongjian">
+
+            {% for text in texts %}
+                <div style="margin:5px; border: 1px solid aqua; height:50px; width:800px">
+                    <img src="{% static 'picture/headimg.png' %}" alt="no picture" style="height: 40px; width:40px; display:inline-block; position:relative; top:5px">
+                    <p style="display:inline-block; position:relative; bottom:7px; left:3px">{{ text.time|date:'m' }}月{{ text.time|date:'d' }}日 {{ text.time|date:'H' }}:{{ text.time|date:'i' }}:{{ text.time|date:'s' }} {{ text.outer }}:{{ text.text }}</p>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div id="ds">
+            {% if response %}
+                <strong>回答：</strong>
+                <p>{{ response|linebreaks }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+    <div id="xiamian">
+         <form action="/index/{{ usname }}" method="post" style="display: inline-block; width: 25%">
+             {% csrf_token %}
+             <textarea name="shurukuang" class="shurukuang" cols="30" rows="4" placeholder="输入要发送的内容" style="max-width: 70%"></textarea>
+             <input type="hidden" name="usname" value="{{ usname }}">
+             <input type="submit" value="发送" style="margin-left: 5%; margin-right:5%; position: relative; bottom: 35px;">
+         </form>
+
+        <form action="/dlt" method="post" style="display: inline-block; margin-left: 5%; width: 25%;">
+             {% csrf_token %}
+            <textarea name="dlt_num" class="shurukuang" cols="30" rows="4" placeholder="输入要删除的文字内容" style="max-width: 70%"></textarea>
+            <input type="hidden" name="usname" value="{{ usname }}">
+            <input type="submit" value="删除" style="margin-left: 5%; position: relative; bottom: 35px;">
+        </form>
+
+        <form action="/askds" method="post" style="display: inline-block; margin-left: 12%; width: 25%">
+            {% csrf_token %}
+            <textarea name="question" class="shurukuang" cols="30" rows="4" placeholder="问DeepSeek..." style="max-width: 70%"></textarea>
+            <input type="hidden" name="usname" value="{{ usname }}">
+            <input type="submit" value="发送" style=" margin-left: 5%; position: relative; bottom: 35px;">
+        </form>
+    </div>
+
+
+
+</body>
+</html>

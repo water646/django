@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_test</title>
+    <script src="{% static 'js/vue.global.js' %} "></script>
+</head>
+<body>
+    {% verbatim %}
+    <div id="app">
+        {{msg}}
+
+        <h2>{{web.title}}</h2>
+        <h2>{{web.url}}</h2>
+    </div>
+    {% endverbatim %}
+
+    <script>
+        const {createApp,reactive} = Vue
+
+        createApp({
+            //setup用于设置响应数据和方法
+            setup(){
+                const web=reactive({
+                    title:"邓瑞编程",
+                    url:"dengruicode.com"
+                })
+
+                return{
+                    msg:"success",
+                    web
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>
