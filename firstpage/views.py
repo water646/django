@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+from django.http import JsonResponse
 
 from datetime import datetime
 
@@ -21,7 +22,7 @@ def index(request,usname):
 
         # 获取session中的deepseek回复
         response=request.session.get('response')
-        if response:        #获取后删除seesion
+        if response:        #获取后删除session
             del request.session['response']
 
         return render(request,'design1.html',context={'texts':texts,'usname':usname,'response':response})
@@ -131,6 +132,9 @@ def redir(request):
 def outer(request):
     if request.method == "GET":
         return render(request, 'vue_test.html')
+
+
+
 
 
 

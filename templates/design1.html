@@ -15,7 +15,7 @@
     <div id="dingbu">
         <div id="dingtou">
             <div id="mingzi">{{ usname }}</div>
-            <span id="dingxiang"><img src="{% static 'picture/headimg.png' %}" alt="picture" width="40px" height="40px"></span>
+            <span id="dingxiang"><img src="{% static 'picture/../static/headimg.png' %}" alt="picture" width="40px" height="40px"></span>
         </div>
         <p id="dingwen">留言板</p>
     </div>
@@ -27,7 +27,7 @@
 
             {% for text in texts %}
                 <div style="margin:5px; border: 1px solid aqua; height:50px; width:800px">
-                    <img src="{% static 'picture/headimg.png' %}" alt="no picture" style="height: 40px; width:40px; display:inline-block; position:relative; top:5px">
+                    <img src="{% static 'picture/../static/headimg.png' %}" alt="no picture" style="height: 40px; width:40px; display:inline-block; position:relative; top:5px">
                     <p style="display:inline-block; position:relative; bottom:7px; left:3px">{{ text.time|date:'m' }}月{{ text.time|date:'d' }}日 {{ text.time|date:'H' }}:{{ text.time|date:'i' }}:{{ text.time|date:'s' }} {{ text.outer }}:{{ text.text }}</p>
                 </div>
 
