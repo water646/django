@@ -30,6 +30,7 @@ def login(request):
         password = data.get('password')
         action = data.get('action')
 
+
         if action == 'logout':
             logout(request)
             return JsonResponse({'label':5})
